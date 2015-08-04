@@ -4,16 +4,13 @@
     <% display_write_form = @brand.review_writable? && display_write_form?(@product) %>
     <%= content_tag :div, class: "widget new-review first #{'no-writable' if !@brand.review_writable?}" do %>
       <div class="widget-heading">
-        <div class="widget-title">
-          <%= widget.title.html_safe %>
-        </div>
-        <% if @brand.reviews_index_url.present? %>
+        <% if !@brand.reviews_index_url.blank? %>
           <%= content_tag :div, widget.reviews_button_title, class: 'rfloat btn show-reviews-index', data: {reviews_index_url: @brand.reviews_index_url} %>
         <% end %>
       </div>
       <% if display_write_form %>
         <div class="widget-body">
-          <%= render 'reviews/form' %>
+          <%= render 'products/reviews/custom/form' %>
           <% if @brand.review_enable_nonmember_review? && !current_user %>
             <div id="nonmember-review-tmpl" class="hidden">
               <div class="nonmember-review">
@@ -72,7 +69,9 @@
         </div>
       <% end %>
     <% end %>
-    <%= render 'products/reviews/summary', klass: ('without_write_form' unless display_write_form) %>
+    <div class="product-reviews-summary">
+      <%= render 'products/reviews/custom/summary', klass: ('without_write_form' unless display_write_form) %>
+    </div>
     <%= render 'products/reviews/custom/reviews' %>
   <% end %>
 <% end %>

@@ -1,22 +1,40 @@
+@import "../../lib/arrow";
 @import "../../lib/common";
 @import "compass/css3/transition";
 @import "compass/css3/opacity";
 
+body.products.reviews {
+  margin: 2px;
+}
+
 body.products.reviews, #review-edit-form {
   .widget {
     &.new-review {
-      padding-bottom: 0;
+      padding: 0 35px 40px 35px;
+      border-left: 3px solid black;
+      border-right: 3px solid black;
+      border-bottom: 3px solid black;
     }
 
     &.widget-reviews {
       padding-top: 38px;
+
+      .widget-heading {
+        height: 21px;
+        border-bottom: 0;
+        margin-bottom: 40px;
+
+        .review-options-search {
+          margin-top: 8px;
+          top: -34px;
+        }
+      }
     }
   }
 
   ul.header {
-    line-height: 32px;
-    border-top: 3px solid #414141;
-    border-bottom: 1px solid #9f9f9f;
+    line-height: 39px;
+    border: 1px solid #e4e4e4;
     font-weight: bold;
     color: #4c4c4c;
 
@@ -31,6 +49,8 @@ body.products.reviews, #review-edit-form {
     width: 100%;
     border-spacing: 0;
     position: relative;
+    border-left: 1px solid #e4e4e4;
+    border-right: 1px solid #e4e4e4;
 
     .col {
       display: inline-block;
@@ -65,16 +85,23 @@ body.products.reviews, #review-edit-form {
       }
 
       &.author {
-        width: 121px;
+        width: 110px;
         position: absolute;
         top: 0;
-        right: 106px;
+        right: 80px;
         text-align: left;
         padding-left: 40px;
       }
 
       &.score {
-        width: 106px;
+        width: 90px;
+        position: absolute;
+        top: 0;
+        right: 70px;
+      }
+
+      &.likes {
+        width: 70px;
         position: absolute;
         top: 0;
         right: 0;
@@ -82,14 +109,22 @@ body.products.reviews, #review-edit-form {
     }
 
     li.review {
-      line-height: 28px;
+      line-height: 43px;
       color: #434343;
       border-top: 0;
-      border-bottom: 1px solid #ededed;
+      border-bottom: 1px solid #e4e4e4;
       padding: 0 !important;
 
       .title {
         text-align: left;
+      }
+
+      .user-grade-icon {
+        float: left;
+        margin: 12px 5px 0 -10px;
+        // margin-top: 12px;
+        // margin-left: -10px;
+        // margin-right: 5px;
       }
     }
 
@@ -98,13 +133,10 @@ body.products.reviews, #review-edit-form {
       margin-top: 5px;
     }
 
-    .sprites-camera {
-      width: 20px;
-      height: 15px;
-      display: block;
+    .sprites-icon-file {
       position: absolute;
-      top: 7px;
-      left: 8px;
+      top: 13px;
+      left: 12px;
     }
 
     .sprites-star-full, .sprites-star-empty {
@@ -114,12 +146,41 @@ body.products.reviews, #review-edit-form {
     }
 
     .review-content-expanded {
+      border-top: 1px solid #e4e4e4;
       display: none;
-      padding: 30px 34px 42px 34px !important;
+      padding: 52px 52px 42px 52px !important;
     }
 
     .expanded .review-content-expanded {
       display: block;
+
+      .comments-container, input#comment_message {
+        background: #fafafa;
+      }
+
+      .comments-container {
+        line-height: 15px;
+
+        .arrow-top:after {
+          @include arrow-top(7px, transparent, #fafafa);
+        }
+
+        .new-comments {
+          line-height: 50px;
+
+          .btn {
+            background: #fafafa;
+            color: black;
+            top: 16px;
+            right: 20px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .review-options .review-option {
+      line-height: 15px;
     }
   }
 
@@ -131,17 +192,26 @@ body.products.reviews, #review-edit-form {
     padding-bottom: 0;
   }
 
-  .widget-reviews.no-data {
+  .no-data-message {
     display: none;
   }
 
-  .product_reviews_grid .widget-reviews.no-data {
-    display: block;
+  .review-options-search-toggle {
+    display: none;
+  }
+
+  .widget-reviews.no-data {
+    .no-data-message {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin: 60px 0 30px 0;
+    }
   }
 
   .select2-container#s2id_review_score {
     border: 1px solid #dadada;
-    font-size: 14px;
+    font-size: 12px;
     display: block;
     padding: 4px 10px;
     height: 25px;
@@ -159,8 +229,9 @@ body.products.reviews, #review-edit-form {
   }
 
   .product-reviews-summary {
-    padding: 20px 29px;
-    border: 1px solid #dadada;
+    margin-top: 110px;
+    padding: 40px 76px 45px 76px;
+    background: #fafafa;
 
     &.only-thumbnail {
       border-top: 3px solid #aaa;
@@ -444,50 +515,35 @@ body.products.reviews, #review-edit-form {
 
   #review-photo-thumbnails {
     position: relative;
-    margin-left: 185px;
     text-align: center;
-    height: 65px;
+
+    .title {
+      font-size: 27px;
+      font-family: $font-default;
+    }
 
     #review-photo-summary {
-      position: absolute;
-      left: -190px;
-      top: -1px;
+      padding-top: 12px;
+      padding-bottom: 30px;
 
       .count-text {
         color: #c3c3c3;
         font-size: 12px;
 
         .count {
-          font-size: 20px;
           font-weight: bold;
-          color: black;
           font-family: $font-default;
           padding-right: 3px;
-        }
-      }
-
-      .show-all-photo-reviews {
-        color: #666;
-        font-size: 12px;
-        text-align: right;
-        margin-top: 4px;
-
-        .sprites-check {
-          display: none;
-        }
-
-        .selected .sprites-check {
-          @include inline-block;
-          position: relative;
-          top: 1px;
         }
       }
     }
 
     .product-thumbnail-container {
       height: 65px;
+      width: 877px;
       overflow: hidden;
       white-space: nowrap;
+      margin: 0 auto;
 
       .photo-review-thumbnail {
         margin-left: 5px;
@@ -502,6 +558,28 @@ body.products.reviews, #review-edit-form {
         width: 65px;
         height: 65px;
         background: #f1f1f1;
+      }
+    }
+
+    .show-all-photo-reviews {
+      color: #666;
+      font-size: 12px;
+      margin-top: 35px;
+
+      .link-photo-reviews {
+        background: black;
+        color: white;
+        padding: 10px 15px;
+      }
+
+      .sprites-check {
+        display: none;
+      }
+
+      .selected .sprites-check {
+        @include inline-block;
+        position: relative;
+        top: 1px;
       }
     }
   }
