@@ -536,10 +536,10 @@ body.products.reviews, #review-edit-form {
 
     .product-thumbnail-container {
       height: 90px;
-      width: 877px;
+      width: 947px;
       overflow: hidden;
       white-space: nowrap;
-      margin: 0 auto;
+      margin-left: -28px;
 
       .photo-review-thumbnail {
         margin-left: 0px;
@@ -556,8 +556,8 @@ body.products.reviews, #review-edit-form {
       }
 
       .photo-review-thumbnail-empty {
-        width: 65px;
-        height: 65px;
+        width: 90px;
+        height: 90px;
         background: #f1f1f1;
       }
     }
