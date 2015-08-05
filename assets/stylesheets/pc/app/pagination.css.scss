@@ -9,7 +9,7 @@
   padding: 4px 8px;
   margin: 0 2px 0 2px;
   cursor: pointer;
-  color: #6e6e6e;
+  color: #bbb;
   font-weight: bold;
   font-family: Verdana, Dotum, AppleGothic, sans-serif;
   font-size: 10px;
@@ -31,6 +31,10 @@ a.next.paginate_button {
 .dataTables_paginate.paging_full_numbers {
   padding-top: 10px;
   font-size: 0;
+  
+  .first, .last {
+    display: none;
+  }
 }
 
 .paging_full_numbers a.paginate_active, .paging_full_numbers a.paginate_button:active, .paging_full_numbers a.paginate_button:hover {
