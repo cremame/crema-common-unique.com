@@ -2,7 +2,7 @@
   <div class="widget-heading">
     <span class="title">REVIEW</span>
     <span class="sort-type selected">
-      <strong><%= ReviewSort.t(@review_sort) %></strong>
+      <%= ReviewSort.t(@review_sort) %>
       리뷰 (<%= content_tag :span, number_with_delimiter(product_reviews.total_count), class: 'reviews-count' %>)
     </span>
     <% @brand.review_sort_types(ReviewGroupBy::NONE).select{|r| r != @review_sort}.each do |review_sort_type| %>
@@ -18,11 +18,12 @@
   </div>
   <ul class="header">
     <li>
-      <div class="col index">번호</div>
-      <div class="col photo">사진</div>
-      <div class="col title">제목</div>
-      <div class="col author">작성자</div>
-      <div class="col likes">좋아요</div>
+      <div class="col index">NO</div>
+      <div class="col photo">PHOTO</div>
+      <div class="col title">SUBJECT</div>
+      <div class="col author">NAME</div>
+      <div class="col date">DATE</div>      
+      <div class="col score">GRADE</div>
     </li>
   </ul>
   <ul class="reviews reviews-product">

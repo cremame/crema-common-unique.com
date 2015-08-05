@@ -18,6 +18,10 @@ body.products.reviews, #review-edit-form {
       .new-review.widget .widget-heading {
         display: none;
       }
+      
+      .new-review.widget .btn {
+        display: none;
+      }
     }
 
     &.widget-reviews {
@@ -27,10 +31,16 @@ body.products.reviews, #review-edit-form {
         height: 21px;
         border-bottom: 0;
         margin-bottom: 40px;
+        
+        .title {
+          font-size: 12px;
+        }
 
         .review-options-search {
+          width: 275px;
+          float: right;          
           margin-top: 8px;
-          top: -34px;
+          top: -30px;
         }
       }
     }
@@ -89,10 +99,10 @@ body.products.reviews, #review-edit-form {
       }
 
       &.author {
-        width: 110px;
+        width: 70px;
         position: absolute;
         top: 0;
-        right: 80px;
+        right: 160px;
         text-align: left;
         padding-left: 40px;
       }
@@ -102,6 +112,15 @@ body.products.reviews, #review-edit-form {
         position: absolute;
         top: 0;
         right: 70px;
+      }
+      
+      &.date {
+        width: 70px;
+        position: absolute;
+        top: 0;
+        right: 80px;
+        text-align: center;
+        padding-left: 40px;
       }
 
       &.likes {
@@ -233,7 +252,7 @@ body.products.reviews, #review-edit-form {
   }
 
   .product-reviews-summary {
-    margin-top: 110px;
+    margin-top: 35px;
     padding: 40px 76px 45px 76px;
 
     &.only-thumbnail {
