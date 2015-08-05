@@ -11,9 +11,8 @@
   cursor: pointer;
   color: black;
   font-weight: bold;
-  border: 1px solid #D7D5D5;
   font-family: Verdana, Dotum, AppleGothic, sans-serif;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 a.last.paginate_button, a.next.paginate_button, a.first.paginate_button, a.previous.paginate_button {
@@ -35,5 +34,5 @@ a.next.paginate_button {
 }
 
 .paging_full_numbers a.paginate_active, .paging_full_numbers a.paginate_button:active, .paging_full_numbers a.paginate_button:hover {
-  color: #FF4EA0;
+  color: #333;
 }
