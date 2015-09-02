@@ -1,7 +1,7 @@
 <% editable = comment.editable?(current_user) %>
 <%= content_tag :li, class: 'comment hoverable', id: "comment_#{comment.new_record? ? "{{id}}" : comment.id}" do %>
   <div class="inner">
-    <%= content_tag :div, comment.user_username, class: 'lpane', title: comment.user_username %>
+    <%= content_tag :div, comment.user_display_name, class: 'lpane', title: comment.user_display_name %>
     <div class="rpane">
       <div class="error-message rfloat"></div>
       <div class="message">
