@@ -1,7 +1,7 @@
 <%
-  photo_reviews_count = product.photo_reviews_count
+  photo_reviews_count = product.meta_photo_reviews_count
   review_images = product.review_images([30, photo_reviews_count].min)
-  reviews = product.visible_reviews
+  reviews = product.meta_visible_reviews
 %>
 <div class="score-summary">
   <div id="review-photo-thumbnails">
