@@ -6,7 +6,7 @@
       리뷰 (<%= content_tag :span, number_with_delimiter(product_reviews.total_count), class: 'reviews-count' %>)
     </span>
     <% @brand.review_sort_types(ReviewGroupBy::NONE).select{|r| r != @review_sort}.each do |review_sort_type| %>
-    <span class="review-sort-type-column"> | </span><%= link_to ajax_path(order: review_sort_type), remote: true do %><span class="sort-type"><%= ReviewSort.t(review_sort_type) %></span><% end %>
+    <span class="review-sort-type-column"> | </span><%= link_to ajax_path(sort: review_sort_type), remote: true do %><span class="sort-type"><%= ReviewSort.t(review_sort_type) %></span><% end %>
     <% end %>
     <% review_option_types = @brand.searchable_options %>
     <% if !review_option_types.blank? %>
@@ -22,7 +22,7 @@
       <div class="col photo">PHOTO</div>
       <div class="col title">SUBJECT</div>
       <div class="col author">NAME</div>
-      <div class="col date">DATE</div>      
+      <div class="col date">DATE</div>
       <div class="col score">GRADE</div>
     </li>
   </ul>
